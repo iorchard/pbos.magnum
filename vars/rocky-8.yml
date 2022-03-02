@@ -1,0 +1,18 @@
+---
+packages:
+  - openstack-magnum-api
+  - openstack-magnum-conductor
+  - python3-magnumclient
+
+mariadb_service_socket: "/var/lib/mysql/mysql.sock"
+
+os_service_init: []
+
+os_conf_dir: "/etc/magnum"
+os_service_conf: 
+  - {dest: "{{ os_conf_dir }}/magnum.conf"}
+
+os_systemd_service_name:
+  - openstack-magnum-api.service
+  - openstack-magnum-conductor.service
+...

@@ -1,0 +1,19 @@
+---
+offline: false
+openstack_release: "wallaby"
+keepalived_vip: ""
+os_service_name: "magnum"
+db_password: "{{ magnum_password }}"
+os_password: "{{ magnum_password }}"
+rabbitmq_openstack_password: ~
+memcached_port: 11211
+keystone_port: 5000
+magnum_port: 9511
+os_endpoint_interface:
+  - public
+  - internal
+  - admin
+mariadb_ca_cert: "/etc/my.cnf.d/certificates/ca-cert.pem"
+rabbitmq_ca_cert: "/etc/rabbitmq/certificates/ca-cert.pem"
+rabbitmq_tls_port: 5671
+...

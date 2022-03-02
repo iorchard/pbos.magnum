@@ -1,0 +1,63 @@
+[DEFAULT]
+transport_url = rabbit://openstack:{{ rabbitmq_openstack_password }}@{{ keepalived_vip }}:{{rabbitmq_tls_port }}
+[api]
+host = {{ ansible_host }}
+[barbican_client]
+[certificates]
+cert_manager_type = barbican
+[cinder]
+[cinder_client]
+region_name = RegionOne
+[cluster]
+[cluster_heat]
+[cluster_template]
+[conductor]
+workers = 4
+[cors]
+[database]
+connection = mysql+pymysql://{{ os_service_name }}:{{ db_password }}@{{ keepalived_vip }}/{{ os_service_name }}?charset=utf8&ssl_ca={{ mariadb_ca_cert }}
+[docker]
+[docker_registry]
+[drivers]
+[glance_client]
+[heat_client]
+[keystone_auth]
+[keystone_authtoken]
+memcached_servers = {{ keepalived_vip }}:{{ memcached_port }}
+auth_version = v3
+www_authenticate_uri = http://{{ keepalived_vip }}:{{ keystone_port }}/v3
+project_domain_id = default
+project_name = service
+user_domain_id = default
+password = {{ os_password }}
+username = {{ os_service_name }}
+auth_url = http://{{ keepalived_vip }}:{{ keystone_port }}
+auth_type = password
+admin_user = {{ os_service_name }}
+admin_password = {{ os_password }}
+admin_tenant_name = service
+[kubernetes]
+[magnum_client]
+[neutron_client]
+[nova_client]
+[octavia_client]
+[oslo_concurrency]
+lock_path = /var/lib/magnum/tmp
+[oslo_messaging_amqp]
+[oslo_messaging_kafka]
+[oslo_messaging_notifications]
+driver = messaging
+[oslo_messaging_rabbit]
+ssl = true
+ssl_version = TLSv1_2
+ssl_ca_file = {{ rabbitmq_ca_cert }}
+[oslo_policy]
+[profiler]
+[quotas]
+[trust]
+cluster_user_trust = true
+trustee_domain_name = {{ os_service_name }}
+trustee_domain_admin_name = magnum_domain_admin
+trustee_domain_admin_password = {{ os_password }}
+trustee_keystone_interface = public
+[x509]
