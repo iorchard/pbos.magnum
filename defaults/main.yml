@@ -10,9 +10,9 @@ memcached_port: 11211
 keystone_port: 5000
 magnum_port: 9511
 os_endpoint_interface:
-  - public
-  - internal
-  - admin
+  - { name: 'public', url: "http://{{ keepalived_vip_svc | ternary(keepalived_vip_svc, keepalived_vip) }}:{{ magnum_port }}/v1" }
+  - { name: 'internal', url: "http://{{ keepalived_vip }}:{{ magnum_port }}/v1" }
+  - { name: 'admin', url: "http://{{ keepalived_vip }}:{{ magnum_port }}/v1" }
 mariadb_ca_cert: "/etc/my.cnf.d/certificates/ca-cert.pem"
 rabbitmq_ca_cert: "/etc/rabbitmq/certificates/ca-cert.pem"
 rabbitmq_tls_port: 5671
