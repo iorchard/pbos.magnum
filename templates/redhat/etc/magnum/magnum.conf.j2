@@ -1,5 +1,6 @@
 [DEFAULT]
 transport_url = rabbit://openstack:{{ rabbitmq_openstack_password }}@{{ keepalived_vip }}:{{rabbitmq_tls_port }}
+log_dir = /var/log/magnum
 [api]
 host = {{ ansible_host }}
 [barbican_client]
