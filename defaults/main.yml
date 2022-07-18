@@ -1,6 +1,6 @@
 ---
 offline: false
-openstack_release: "wallaby"
+openstack_release: "yoga"
 keepalived_vip: ""
 os_service_name: "magnum"
 db_password: "{{ magnum_password }}"
@@ -16,4 +16,5 @@ os_endpoint_interface:
 mariadb_ca_cert: "/etc/my.cnf.d/certificates/ca-cert.pem"
 rabbitmq_ca_cert: "/etc/rabbitmq/certificates/ca-cert.pem"
 rabbitmq_tls_port: 5671
+post_install_manifest_url: "http://192.168.151.110:8000/pbos/magnum/post_install.yaml"
 ...
