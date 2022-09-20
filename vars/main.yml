@@ -3,4 +3,12 @@ pkg_state: "latest"
 prereq_pkgs:
   - ca-certificates
   - curl
+
+os_conf_dir: "/etc/magnum"
+
+static_conf:
+  - {dest: "{{ os_conf_dir }}/keystone_auth_default_policy.json", owner: "root", group: "{{ os_service_name }}", mode: "0644"}
+
+os_service_conf: 
+  - {dest: "{{ os_conf_dir }}/magnum.conf", owner: "root", group: "{{ os_service_name }}", mode: "0640"}
 ...

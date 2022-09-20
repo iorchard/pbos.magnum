@@ -13,6 +13,7 @@ region_name = RegionOne
 [cluster_heat]
 [cluster_template]
 [conductor]
+workers = 4
 [cors]
 [database]
 connection = mysql+pymysql://{{ os_service_name }}:{{ db_password }}@{{ keepalived_vip }}/{{ os_service_name }}?charset=utf8&ssl_ca={{ mariadb_ca_cert }}
